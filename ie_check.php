@@ -168,7 +168,7 @@ function ie_check(){
 	$years = 0;
 	$years_label = " year";
 
-	if (preg_match('|MSIE ([0-9].[0-9]{1,2})|',$_SERVER['HTTP_USER_AGENT'],$matched)or true) {
+	if (preg_match('|MSIE ([0-9].[0-9]{1,2})|',$_SERVER['HTTP_USER_AGENT'],$matched)) {
     	
     	$browser_version=$matched[1];
 

@@ -36,6 +36,7 @@ Finito!
 
 == Screenshots ==
 1. Full screen showing warning message
+2. Plugin options
 
 
 == Changelog ==
