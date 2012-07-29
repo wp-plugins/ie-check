@@ -19,7 +19,7 @@ There's a CSS file with all the styles you can change.
 
 == Installation ==
 
-Upload the IE plugin to your blog, Activate it, the add the following code to your template:
+Upload the IE Check plugin to your blog, Activate it, the add the following code to your template:
 
 `<?php if (function_exists("ie_check")) { ie_check(); } ?>`
 
@@ -36,7 +36,7 @@ Finito!
 
 == Screenshots ==
 1. Full screen showing warning message
-2. Plugin options
+2. Plugin configuration
 
 
 == Changelog ==
