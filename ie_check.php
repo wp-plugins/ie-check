@@ -37,7 +37,7 @@ function iecheck_add_defaults() {
 		$arr = array(	'title' => 'Wow',	
 						'show_browser_age' => 'true',					
 						'browser_page_URI' => 'http://browsehappy.com/',
-						'message' => 'Using an outdated browser makes your computer unsafe.	 For the best experience on the web, please update your browser. Please upgrade! It will make everyone happier!',
+						'message' => 'Using an outdated browser makes your computer unsafe.	 For the best experience on the web, please update your browser.',
 						'allow_dismiss' => 'true',
 						'display_mode' => 'fullScreen',
 						'last_supported_version' => 9
