@@ -19,13 +19,11 @@ There's a CSS file with all the styles you can change.
 
 == Installation ==
 
-Upload the IE Check plugin to your blog, Activate it, the add the following code to your template:
-
-`<?php if (function_exists("ie_check")) { ie_check(); } ?>`
-
-I recommend adding it to your footer.php
-
-Finito!
+*Upload the IE Check plugin to your blog, Activate it, the add the following code to your template: 
+`<?php if (function_exists("ie_check")) { ie_check(); } ?>` 
+*I recommend adding it to your footer.php
+*Go to "Settings > IE Check" to configure the plugin
+*Finito!
 
 == Features ==
 
@@ -36,8 +34,8 @@ Finito!
 
 == Todo ==
 
-* BUG: Correct message that also shows up when using Safari 6
 * Display message as a modal
+* Add more layout options
 
 == Screenshots ==
 1. Full screen showing warning message
@@ -45,6 +43,9 @@ Finito!
 
 
 == Changelog ==
+
+= 0.8.1 =
+* Upgrade button launches new page
 
 = 0.8.0 =
 * First released version

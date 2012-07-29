@@ -1,19 +1,18 @@
 <?php
 /**
  * @package IE Check
- * @version 0.8.0
+ * @version 0.8.1
  */
 /*
 Plugin Name: IE Check
 Plugin URI: http://josemarqu.es/ie-check/
 Description: Checks if the browser is an older version of Internet Explorer, releases rage if it's IE<9
 Author: José Marques
-Version: 0.8.0
+Version: 0.8.1
 Author URI: http://josemarqu.es
 License: GPL2
 */
 
-//TODO: plugin folder name cannot be hardcoded
 
 
 // Set-up Action and Filter Hooks
@@ -38,7 +37,7 @@ function iecheck_add_defaults() {
 		$arr = array(	'title' => 'Wow',	
 						'show_browser_age' => 'true',					
 						'browser_page_URI' => 'http://browsehappy.com/',
-						'message' => 'Please upgrade! It will make everyone happier!',
+						'message' => 'Using an outdated browser makes your computer unsafe.	 For the best experience on the web, please update your browser. Please upgrade! It will make everyone happier!',
 						'allow_dismiss' => 'true',
 						'display_mode' => 'fullScreen',
 						'last_supported_version' => 9
@@ -167,6 +166,7 @@ function ie_check(){
 	$browser_version = 1;
 	$years = 0;
 	$years_label = " year";
+echo $_SERVER['HTTP_USER_AGENT'];
 
 	if (preg_match('|MSIE ([0-9].[0-9]{1,2})|',$_SERVER['HTTP_USER_AGENT'],$matched)) {
     	
@@ -207,7 +207,7 @@ function ie_check(){
 
 			echo '<div class="message">'.$options['message'].'</div>';
 
-			echo '<p class="buttons"><a href="'.$options['browser_page_URI'].'" class="upgrade">Upgrade</a>';
+			echo '<p class="buttons"><a href="'.$options['browser_page_URI'].'" class="upgrade" target="_blank">Upgrade</a>';
 
 			if($options['allow_dismiss']=='true'){
 				echo '<script type="text/javascript" >
