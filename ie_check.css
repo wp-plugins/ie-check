@@ -1,0 +1,87 @@
+
+
+.browser-feedback{	
+	font-family: 'Palatino Linotype', 'Book Antiqua3', Palatino, serif;
+	position: fixed;	
+	font-size: 20px;
+	font-weight: bold;
+	background: #5BAFAB;
+	z-index: 1000000;
+	left: 0;
+	right: 0;
+}
+
+div.fullScreen{
+	top: 0;
+	bottom 0;
+	height: 100%;
+	padding: 100px 0;
+}
+
+div.header{
+	padding: 20px 0;
+	top: 0;
+}
+
+div.footer{
+	bottom: 0;
+	padding: 20px 0;
+}
+
+.browser-feedback h3,
+.browser-feedback p,
+.browser-feedback .message{
+	width: 740px;
+	margin: 0 auto;
+}	
+
+.browser-feedback h3{
+	font-size: 50px;
+	color: #324B4B;
+	letter-spacing: -3px;
+}	
+
+.browser-feedback p,
+.browser-feedback .message,
+.browser-feedback a{
+	font-size: 20px;
+	color: #fff;
+	line-height: 2.5;
+}
+
+.buttons{
+	padding-top: 20px;
+}
+
+.buttons a{
+	color: #324B4B;
+	font-size: 20px;
+	padding: 10px 15px;
+	*padding: 0 15px;
+	text-decoration: underline;
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b4ddb4', endColorstr='#005700',GradientType=0 );
+	filter:alpha(opacity=75);
+	opacity: 0.75;
+	zoom: 1;
+	margin-right: 20px;
+}
+
+.buttons a:hover{
+	color: #223333;
+	text-decoration: none;
+}	
+
+.buttons a.upgrade{
+	background: #324B4B;
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
+	border-bottom: 3px solid #223333;
+}
+
+.buttons a.upgrade:hover{
+	background: #293D3D;
+	color: #fff;
+}
+
+

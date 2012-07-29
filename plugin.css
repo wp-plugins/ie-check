@@ -1,0 +1,34 @@
+
+.ie_check p{
+	line-height: 3;
+	border-bottom: 1px solid #efefef;
+}
+
+
+.ie_check p.wysiwyg{
+	line-height: 1;
+	border: none;
+}
+
+.ie_check p label{
+	
+	width: 200px;
+	display: inline-block;
+}
+
+.ie_check p label.options{
+	width: auto;
+	padding-right: 10px;
+}
+
+
+
+.ie_check p.submit{
+	border: none;
+}
+
+.ie_check p input.button-primary{
+	font-size: 16px !important;
+	line-height: 20px;
+
+}
