@@ -34,6 +34,11 @@ Finito!
 * Choose the recommended site
 * Allow user to dismiss message
 
+== Todo ==
+
+* BUG: Correct message that also shows up when using Safari 6
+* Display message as a modal
+
 == Screenshots ==
 1. Full screen showing warning message
 2. Plugin configuration
