@@ -1,5 +1,5 @@
 === IE Check ===
-Contributors: José Marques
+Contributors: josemarques
 Tags: browser compatilibity, web standards, Internet Explorer
 Tested up to: 3.4
 Requires at least: 3.0
