@@ -1,14 +1,14 @@
 <?php
 /**
  * @package IE Check
- * @version 0.8.1
+ * @version 0.8.2
  */
 /*
 Plugin Name: IE Check
 Plugin URI: http://josemarqu.es/ie-check/
 Description: Checks if the browser is an older version of Internet Explorer, releases rage if it's IE<9
 Author: José Marques
-Version: 0.8.1
+Version: 0.8.2
 Author URI: http://josemarqu.es
 License: GPL2
 */
@@ -166,7 +166,7 @@ function ie_check(){
 	$browser_version = 1;
 	$years = 0;
 	$years_label = " year";
-echo $_SERVER['HTTP_USER_AGENT'];
+
 
 	if (preg_match('|MSIE ([0-9].[0-9]{1,2})|',$_SERVER['HTTP_USER_AGENT'],$matched)) {
     	

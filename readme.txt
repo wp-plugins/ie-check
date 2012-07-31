@@ -44,6 +44,9 @@ There's a CSS file with all the styles you can change.
 
 == Changelog ==
 
+= 0.8.2 =
+* Removed bug that was printing the browser agent
+
 = 0.8.1 =
 * Upgrade button launches new page
 
