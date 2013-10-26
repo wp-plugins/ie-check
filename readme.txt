@@ -1,12 +1,12 @@
 === IE Check ===
 Contributors: josemarques
 Tags: browser compatilibity, web standards, Internet Explorer
-Tested up to: 3.4
+Tested up to: 3.7
 Requires at least: 3.0
 Stable tag: trunk
 License: GPLv2 or later
 
-Checks if the browser is an older version of Internet Explorer, releases rage if it's IE<9
+Checks if the browser is an older version of Internet Explorer, releases rage if it's IE<11
 
 == Description ==
 
@@ -19,23 +19,25 @@ There's a CSS file with all the styles you can change.
 
 == Installation ==
 
-*Upload the IE Check plugin to your blog, Activate it, the add the following code to your template: 
+1. Install the IE Check plugin on your blog
+2. Activate it, 
+3. Add the add the following code to your template: 
 `<?php if (function_exists("ie_check")) { ie_check(); } ?>` 
 *I recommend adding it to your footer.php
-*Go to "Settings > IE Check" to configure the plugin
-*Finito!
+4. Go to "Settings > IE Check" to configure the plugin
+5. Open your blog on an outdate Internet Explorer instalationn (or use developer tools to see the results)
+6. Finito!
+7. (Please rate the plugin ;)
 
 == Features ==
 
 * Personalizable text
 * Personalizable display options
 * Choose the recommended site
-* Allow user to dismiss message
 
 == Todo ==
 
-* Display message as a modal
-* Add more layout options
+* Customizable CSS on the plugin admin
 
 == Screenshots ==
 1. Full screen showing warning message
@@ -43,6 +45,9 @@ There's a CSS file with all the styles you can change.
 
 
 == Changelog ==
+
+= 0.9 =
+* Added support up to IE 11
 
 = 0.8.2 =
 * Removed bug that was printing the browser agent

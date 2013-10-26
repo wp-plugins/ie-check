@@ -1,16 +1,16 @@
 <?php
 /**
  * @package IE Check
- * @version 0.8.2
+ * @version 0.9
  */
 /*
 Plugin Name: IE Check
-Plugin URI: http://josemarqu.es/ie-check/
-Description: Checks if the browser is an older version of Internet Explorer, releases rage if it's IE<9
+Plugin URI: http://wordpress.org/plugins/ie-check/
+Description: Checks if the browser is an older version of Internet Explorer, releases rage if it's IE<11
 Author: José Marques
-Version: 0.8.2
-Author URI: http://josemarqu.es
-License: GPL2
+Version: 0.9
+Author URI: http://feedingtherobots.com
+License: GPL2 
 */
 
 
@@ -37,10 +37,9 @@ function iecheck_add_defaults() {
 		$arr = array(	'title' => 'Wow',	
 						'show_browser_age' => 'true',					
 						'browser_page_URI' => 'http://browsehappy.com/',
-						'message' => 'Using an outdated browser makes your computer unsafe.	 For the best experience on the web, please update your browser.',
-						'allow_dismiss' => 'true',
-						'display_mode' => 'fullScreen',
-						'last_supported_version' => 9
+						'message' => 'Using an outdated browser makes your computer unsafe.	 For the best experience on the web, please upgrade your browser.',
+						'display_mode' => 'header',
+						'last_supported_version' => 11
 		);
 		update_option('iecheck_options', $arr);
 	}
@@ -84,7 +83,9 @@ function iecheck_render_form() {
 				<select name='iecheck_options[last_supported_version]'>
 					<option value='7' <?php selected(7, $options['last_supported_version']); ?>>Internet Explorer 7</option>
 					<option value='8' <?php selected(8, $options['last_supported_version']); ?>>Internet Explorer 8</option>
-					<option value='9' <?php selected(9, $options['last_supported_version']); ?>>Internet Explorer 9</option>							
+					<option value='9' <?php selected(9, $options['last_supported_version']); ?>>Internet Explorer 9</option>
+					<option value='10' <?php selected(10, $options['last_supported_version']); ?>>Internet Explorer 10</option>
+					<option value='11' <?php selected(11, $options['last_supported_version']); ?>>Internet Explorer 11</option>							
 				</select>
 			</p>
 
@@ -92,7 +93,8 @@ function iecheck_render_form() {
 			<p>
 				<label>Display mode</label>
 				<select name='iecheck_options[display_mode]'>
-					<option value='fullScreen' <?php selected('fullScreen', $options['display_mode']); ?>>full screen</option>
+					<!-- full screen is too disruptive -->
+					<!--<option value='fullScreen' <?php selected('fullScreen', $options['display_mode']); ?>>full screen</option>-->
 					<option value='header' <?php selected('header', $options['display_mode']); ?>>header</option>
 					<option value='footer' <?php selected('footer', $options['display_mode']); ?>>footer</option>							
 				</select>
@@ -125,10 +127,7 @@ function iecheck_render_form() {
 				?>
 				<span></span>
 				
-			<p>
-				<label class="options">Show dismiss button</label><input name="iecheck_options[allow_dismiss]" type="checkbox" value="true"  <?php if ($options[ 'allow_dismiss' ] == 'true') echo 'checked="checked"'; ?> />
-
-			</p>	
+			
 
 				
 
@@ -167,67 +166,83 @@ function ie_check(){
 	$years = 0;
 	$years_label = " year";
 
+	preg_match('/MSIE (.*?);/', $_SERVER['HTTP_USER_AGENT'], $matches);
 
-	if (preg_match('|MSIE ([0-9].[0-9]{1,2})|',$_SERVER['HTTP_USER_AGENT'],$matched)) {
-    	
-    	$browser_version=$matched[1];
+	
+	if (count($matches)>1||true){
+	  //Then we're using IE
+	  $browser_version = (int) $matches[1];
 
-		if($browser_version<9){
-			switch($browser_version){
-	    		case 5:
-	    			$years = date("Y") - 2000;
-	    			break;
-	    		case 6:
-	    			$years = date("Y") - 2001;
-	    			break;
-	    		case 7:
-	    			$years = date("Y") - 2006;
-	    			break;
-	    		case 8:
-	    			$years = date("Y") - 2009;
-	    			break;	
+	  switch(true){
+	    case ($browser_version<=5):
+			$years = date("Y") - 2000;
+			break;
+		case ($browser_version<=6):
+			$years = date("Y") - 2001;
+			break;
+		case ($browser_version<=7):
+			$years = date("Y") - 2006;
+			break;
+		case ($browser_version<=8):
+			$years = date("Y") - 2009;
+			break;	
+		case ($browser_version<=9):
+			$years = date("Y") - 2011;
+			break;	
+		case ($browser_version<=10):
+			$years = date("Y") - 2012;
+			break;	
+		default:
+			$years = date("Y") - 2013;
+			break;	
+	  }
 
-	    		default:
-	    			$years = date("Y") - 2010;
-	    			break;		
-	    	}
+	if($options['last_supported_version']>$browser_version){
 
-	    	if($years >1) $years_label = " years";
+    	$years_label = " years";
 
-	    	//this should be the link to the plugin folder, if the path is not the stand it will not work
-	    	echo '<link rel="stylesheet" type="text/css" href="'.plugins_url().'/IE-Check/ie_check.css" />';
+    	//this should be the link to the plugin folder, if the path is not the stand it will not work
 
-			echo '<div id="browser-warning" class="browser-feedback '.$options['display_mode'].'">';
-			echo '<h3>'.$options['title'].'</h3>';
-			
-			if($options[ 'show_browser_age' ]=='true'){
-				echo '<p>You are using Microsoft Internet Explorer '.$browser_version.', which is over '.$years.$years_label.' old! </p>';
-			}
-			
+    	echo '<link href="http://fonts.googleapis.com/css?family=Noto+Sans:400,700" rel="stylesheet" type="text/css">';
 
-			echo '<div class="message">'.$options['message'].'</div>';
+    	echo '<link rel="stylesheet" type="text/css" href="'.plugins_url().'/ie-check/ie_check.css" />';
 
-			echo '<p class="buttons"><a href="'.$options['browser_page_URI'].'" class="upgrade" target="_blank">Upgrade</a>';
-
-			if($options['allow_dismiss']=='true'){
-				echo '<script type="text/javascript" >
-		    			function hide_warning(){			    				    				
-		    				document.getElementById("browser-warning").className  = document.getElementById("browser-warning").className + " hidden";	
-		    				document.getElementById("browser-warning").style.display="none";				
-		    			}
-
-		    			
-		    		</script>';
-				echo 'or  <a href="javascript:hide_warning();" >continue to website</a>';
-
-		    	
-			}
-				
-			echo '</p></div>';
-
+		echo '<div id="browser-warning" class="browser-feedback '.$options['display_mode'].'">';
+		echo '<h3>'.$options['title'].'</h3>';
+		
+		if($options[ 'show_browser_age' ]=='true'){
+			echo '<p>You are using Microsoft Internet Explorer '.$browser_version.', which is over '.$years.$years_label.' old! </p>';
 		}
-   	 	
+		
+
+		echo '<div class="message">'.$options['message'].'</div>';
+
+		echo '<p class="buttons"><a href="'.$options['browser_page_URI'].'" class="upgrade" target="_blank">Upgrade</a>';
+
+		
+		echo '<script type="text/javascript" >
+    			function hide_warning(){			    				    				
+    				document.getElementById("browser-warning").className  = document.getElementById("browser-warning").className + " hidden";	
+    				document.getElementById("browser-warning").style.display="none";				
+    			}
+
+    			
+    		</script>';
+		echo 'or  <a href="javascript:hide_warning();" >continue to website</a>';
+
+	    	
+		
+			
+		echo '</p></div>';
+
 	}
+
+
+
+	}
+
+	
+
 
 }
 

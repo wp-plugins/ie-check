@@ -1,9 +1,9 @@
 
 
 .browser-feedback{	
-	font-family: 'Palatino Linotype', 'Book Antiqua3', Palatino, serif;
+	font-family: 'Noto Sans', sans-serif;
 	position: fixed;	
-	font-size: 20px;
+	font-size: 16px;
 	font-weight: bold;
 	background: #5BAFAB;
 	z-index: 1000000;
@@ -19,32 +19,32 @@ div.fullScreen{
 }
 
 div.header{
-	padding: 20px 0;
+	padding: 10px 0;
 	top: 0;
 }
 
 div.footer{
 	bottom: 0;
-	padding: 20px 0;
+	padding: 10px 0;
 }
 
 .browser-feedback h3,
 .browser-feedback p,
 .browser-feedback .message{
-	width: 740px;
+	width: 960px;
 	margin: 0 auto;
 }	
 
 .browser-feedback h3{
-	font-size: 50px;
+	font-size: 25px;
 	color: #324B4B;
-	letter-spacing: -3px;
+	letter-spacing: -1px;
 }	
 
 .browser-feedback p,
 .browser-feedback .message,
 .browser-feedback a{
-	font-size: 20px;
+	font-size: 14px;
 	color: #fff;
 	line-height: 2.5;
 }
@@ -55,7 +55,7 @@ div.footer{
 
 .buttons a{
 	color: #324B4B;
-	font-size: 20px;
+	font-size: 16px;
 	padding: 10px 15px;
 	*padding: 0 15px;
 	text-decoration: underline;
