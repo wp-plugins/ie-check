@@ -22,12 +22,10 @@ There's a CSS file with all the styles you can change.
 1. Install the IE Check plugin on your blog
 2. Activate it, 
 3. Add the add the following code to your template: 
-`<?php if (function_exists("ie_check")) { ie_check(); } ?>` 
-*I recommend adding it to your footer.php
+`<?php if (function_exists("ie_check")) { ie_check(); } ?>`  (I recommend adding it to your footer.php)
 4. Go to "Settings > IE Check" to configure the plugin
 5. Open your blog on an outdate Internet Explorer instalationn (or use developer tools to see the results)
 6. Finito!
-7. (Please rate the plugin ;)
 
 == Features ==
 
