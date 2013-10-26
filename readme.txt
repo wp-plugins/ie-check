@@ -4,7 +4,7 @@ Tags: browser compatilibity, web standards, Internet Explorer
 Tested up to: 3.7
 Requires at least: 3.0
 Stable tag: trunk
-License: GPLv2 or later
+License: GPLv2 or later 
 
 Checks if the browser is an older version of Internet Explorer, releases rage if it's IE<11
 
@@ -42,6 +42,9 @@ There's a CSS file with all the styles you can change.
 
 
 == Changelog ==
+
+= 0.9.1 =
+* Minor fixes
 
 = 0.9 =
 * Added support up to IE 11

@@ -8,7 +8,7 @@ Plugin Name: IE Check
 Plugin URI: http://wordpress.org/plugins/ie-check/
 Description: Checks if the browser is an older version of Internet Explorer, releases rage if it's IE<11
 Author: José Marques
-Version: 0.9
+Version: 0.9.1
 Author URI: http://feedingtherobots.com
 License: GPL2 
 */
