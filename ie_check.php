@@ -1,7 +1,7 @@
 <?php
 /**
  * @package IE Check
- * @version 0.9
+ * @version 0.9.1
  */
 /*
 Plugin Name: IE Check
