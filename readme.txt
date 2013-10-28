@@ -43,6 +43,9 @@ There's a CSS file with all the styles you can change.
 
 == Changelog ==
 
+= 0.9.2 =
+* Minor fixes
+
 = 0.9.1 =
 * Minor fixes
 

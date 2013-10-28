@@ -1,7 +1,7 @@
 <?php
 /**
  * @package IE Check
- * @version 0.9.1
+ * @version 0.9.2
  */
 /*
 Plugin Name: IE Check
@@ -169,7 +169,7 @@ function ie_check(){
 	preg_match('/MSIE (.*?);/', $_SERVER['HTTP_USER_AGENT'], $matches);
 
 	
-	if (count($matches)>1||true){
+	if (count($matches)>1){
 	  //Then we're using IE
 	  $browser_version = (int) $matches[1];
 
