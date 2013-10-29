@@ -44,7 +44,7 @@ There's a CSS file with all the styles you can change.
 == Changelog ==
 
 = 0.9.2 =
-* Minor fixes
+* Fixed debug flag
 
 = 0.9.1 =
 * Minor fixes
